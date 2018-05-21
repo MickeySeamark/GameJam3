@@ -349,6 +349,11 @@ Prefab:
       propertyPath: shootSpot
       value: 
       objectReference: {fileID: 2050592467}
+    - target: {fileID: 114415181828775276, guid: 4eab1c0cc408a8641a6a3d599af301b0,
+        type: 2}
+      propertyPath: BulletsReloadSpot
+      value: 
+      objectReference: {fileID: 2050592468}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4eab1c0cc408a8641a6a3d599af301b0, type: 2}
   m_IsPrefabParent: 0

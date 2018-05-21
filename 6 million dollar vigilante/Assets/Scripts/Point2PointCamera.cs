@@ -53,8 +53,6 @@ public class Point2PointCamera : MonoBehaviour
         // if going to lerp, continue it lerping.
         if (bLerp)
         {
-            Debug.Log(fLerpCount / fJumpDuration);
-
             // increament the lerp count.
             fLerpCount += Time.deltaTime;
 

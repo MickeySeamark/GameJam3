@@ -10,10 +10,14 @@ public class Player : MonoBehaviour
 
     public GameObject shootSpot;
 
+    private List<Transform> BulletsLocations;
+
+    public Transform BulletsReloadSpot;
+
     // Shoot speed
     public float shootSpeed = 100;
 
-    private Transform shootLocation;
+    private Vector3 shootLocation;
 
     // Access to the shoot script
     private GameObject shoot;
@@ -24,10 +28,21 @@ public class Player : MonoBehaviour
     // shotCount
     private int shotCount;
 
+    // RELOAD
+    // how long it takes the bullets to reload
+    public float fReloadDuration = 1.0f;
+
+    // if the bullets are being pulled back
+    private bool bBulletsLerp = false;
+
+    // the count for bullets lerping back to the gun.
+    private float fBulletsLerpCount = 0.0f;
+
     // Use this for initialization
     void Start()
     {
         layerMask = ~(LayerMask.NameToLayer("Enemy"));
+        BulletsLocations = new List<Transform>();
     }
 
     // Update is called once per frame
@@ -89,8 +104,38 @@ public class Player : MonoBehaviour
      */
     void MagneticPull()
     {
+        // reload gun
         if (Input.GetKeyDown(KeyCode.R))
         {
+            bBulletsLerp = true;
+
+            // save the positions of the bullets, for lerping
+            for (int i = 0; i < ObjectPool.m_SharedInstance.m_nAmountToPool; ++i)
+            {
+                BulletsLocations.Add(ObjectPool.m_SharedInstance.GetObject(i).transform);
+            }
+        }
+
+        // whilst bullets reloading
+        if (bBulletsLerp)
+        {
+            // increament the lerp count.
+            fBulletsLerpCount += Time.deltaTime;
+
+            // the bullets travelling from their positions to the gun
+            for (int i = 0; i < ObjectPool.m_SharedInstance.m_nAmountToPool; ++i)
+                ObjectPool.m_SharedInstance.GetObject(i).transform.position = Vector3.Lerp(BulletsLocations[i].position, BulletsReloadSpot.position, fBulletsLerpCount / fReloadDuration);
+
+        }
+        // after the bullets are reloaded
+        if (fBulletsLerpCount >= fReloadDuration)
+        {
+            // delete all bullets
+            ObjectPool.m_SharedInstance.DestroyAll();
+
+            // reset these values, we need to reuse them.
+            bBulletsLerp = false;
+            fBulletsLerpCount = 0.0f;
             shotCount = 0;
         }
     }
@@ -109,7 +154,6 @@ public class Player : MonoBehaviour
     void RayCheck()
     {
         RaycastHit hit; // Information on what a raycast hits
-        Transform hitTransform;
         Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition); // Ray to use when raycasting
 
         if (Input.GetKeyDown(KeyCode.Mouse0)) // Checks if left mouse button is pressed
@@ -120,7 +164,7 @@ public class Player : MonoBehaviour
                 //objectHit.GetComponent<Rigidbody>().AddForce(0, 0, 200.0f); // Applies a force to the object hit
                 //hitTransform.position = hit.transform.position;
 
-                //shootLocation = hitTransform;
+                shootLocation = hit.point;
             }
         }
         //Debug.Log(Input.mousePosition);
