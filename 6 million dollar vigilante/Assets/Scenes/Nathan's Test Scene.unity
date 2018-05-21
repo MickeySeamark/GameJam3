@@ -172,6 +172,8 @@ GameObject:
   - component: {fileID: 408759849}
   - component: {fileID: 408759848}
   - component: {fileID: 408759852}
+  - component: {fileID: 408759854}
+  - component: {fileID: 408759853}
   m_Layer: 8
   m_Name: enemy1
   m_TagString: Enemy
@@ -260,6 +262,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &408759853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 408759847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0ff771f5964644eac1de07a1092935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &408759854
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 408759847}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.25, y: 1.25, z: 1.25}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &448718147
 Prefab:
   m_ObjectHideFlags: 0
@@ -307,7 +332,7 @@ Prefab:
     - target: {fileID: 114415181828775276, guid: 4eab1c0cc408a8641a6a3d599af301b0,
         type: 2}
       propertyPath: shootSpeed
-      value: 25
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 114415181828775276, guid: 4eab1c0cc408a8641a6a3d599af301b0,
         type: 2}
@@ -319,6 +344,11 @@ Prefab:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114415181828775276, guid: 4eab1c0cc408a8641a6a3d599af301b0,
+        type: 2}
+      propertyPath: shootSpot
+      value: 
+      objectReference: {fileID: 2050592467}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4eab1c0cc408a8641a6a3d599af301b0, type: 2}
   m_IsPrefabParent: 0
@@ -502,6 +532,8 @@ GameObject:
   - component: {fileID: 624883666}
   - component: {fileID: 624883665}
   - component: {fileID: 624883669}
+  - component: {fileID: 624883671}
+  - component: {fileID: 624883670}
   m_Layer: 8
   m_Name: enemy5
   m_TagString: Enemy
@@ -590,6 +622,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &624883670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624883664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0ff771f5964644eac1de07a1092935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &624883671
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624883664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.25, y: 1.25, z: 1.25}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &659161819
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +741,8 @@ GameObject:
   - component: {fileID: 670481795}
   - component: {fileID: 670481794}
   - component: {fileID: 670481798}
+  - component: {fileID: 670481800}
+  - component: {fileID: 670481799}
   m_Layer: 8
   m_Name: enemy3
   m_TagString: Enemy
@@ -774,6 +831,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &670481799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 670481793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0ff771f5964644eac1de07a1092935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &670481800
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 670481793}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.25, y: 1.25, z: 1.25}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &831377393
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +950,8 @@ GameObject:
   - component: {fileID: 1242546371}
   - component: {fileID: 1242546370}
   - component: {fileID: 1242546374}
+  - component: {fileID: 1242546376}
+  - component: {fileID: 1242546375}
   m_Layer: 8
   m_Name: enemy2
   m_TagString: Enemy
@@ -958,6 +1040,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1242546375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1242546369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0ff771f5964644eac1de07a1092935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1242546376
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1242546369}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.25, y: 1.25, z: 1.25}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1481897884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,6 +1140,8 @@ GameObject:
   - component: {fileID: 1490480352}
   - component: {fileID: 1490480351}
   - component: {fileID: 1490480355}
+  - component: {fileID: 1490480357}
+  - component: {fileID: 1490480356}
   m_Layer: 8
   m_Name: enemy4
   m_TagString: Enemy
@@ -1123,6 +1230,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1490480356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1490480350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0ff771f5964644eac1de07a1092935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1490480357
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1490480350}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.25, y: 1.25, z: 1.25}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1586695916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,68 +1507,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1 &2099430791
+--- !u!1 &2050592467
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 2099430792}
-  - component: {fileID: 2099430793}
+  - component: {fileID: 2050592468}
   m_Layer: 0
-  m_Name: Area Light
+  m_Name: ShootSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2099430792
+--- !u!4 &2050592468
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2099430791}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.96, z: 2.04}
+  m_GameObject: {fileID: 2050592467}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.443, y: 0.217, z: 0.935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1639142956}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!108 &2099430793
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2099430791}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 3
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 81.52
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 2
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

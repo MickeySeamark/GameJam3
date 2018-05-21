@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 
     public LayerMask layerMask;
 
-
+    public GameObject shootSpot;
 
     // Shoot speed
     public float shootSpeed = 100;
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
             GameObject copy = ObjectPool.m_SharedInstance.GetPooledObject();
 
             // Set the spawn point of the bullet at the players arm position.
-            copy.transform.position = transform.position + transform.forward + (transform.up * 0.6f) * 1;
+            copy.transform.position = shootSpot.transform.position; /*+ shootSpot.transform.forward + shootSpot.transform.up;*/
 
             // Get the snowballs rigidbody
             Rigidbody rb = copy.GetComponent<Rigidbody>();
@@ -109,6 +109,7 @@ public class Player : MonoBehaviour
     void RayCheck()
     {
         RaycastHit hit; // Information on what a raycast hits
+        Transform hitTransform;
         Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition); // Ray to use when raycasting
 
         if (Input.GetKeyDown(KeyCode.Mouse0)) // Checks if left mouse button is pressed
@@ -117,10 +118,12 @@ public class Player : MonoBehaviour
             {
                 Transform objectHit = hit.transform; // Stores the hit object
                 //objectHit.GetComponent<Rigidbody>().AddForce(0, 0, 200.0f); // Applies a force to the object hit
-                shootLocation = hit.transform;
+                //hitTransform.position = hit.transform.position;
+
+                //shootLocation = hitTransform;
             }
         }
-        Debug.Log(Input.mousePosition);
+        //Debug.Log(Input.mousePosition);
     }
 
     void BulletMassToHeavy()
