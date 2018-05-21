@@ -24,6 +24,11 @@ public class Player : MonoBehaviour
     [Tooltip("The speed that the bullets are fired at. Default is 75.")]
     public float shootSpeed = 75;
 
+    // RELOAD
+    // How long it takes the bullets to reload.
+    [Tooltip("The amount of time in seconds that it takes for the bullets to disappear after magnet.")]
+    public float reloadDuration = 1.0f;
+
     // Stores the bullets location for the magnet.
     private List<Transform> BulletsLocations;
 
@@ -39,9 +44,6 @@ public class Player : MonoBehaviour
     // shotCount
     private int shotCount;
 
-    // RELOAD
-    // how long it takes the bullets to reload
-    public float fReloadDuration = 1.0f;
 
     // if the bullets are being pulled back
     private bool bBulletsLerp = false;
