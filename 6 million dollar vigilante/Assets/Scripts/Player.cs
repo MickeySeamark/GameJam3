@@ -14,6 +14,9 @@ public class Player : MonoBehaviour {
     // Whether the player is out of ammo or not.
     private bool outOfAmmo;
 
+    // shotCount
+    private int shotCount;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -23,16 +26,14 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-       
 
-		if(outOfAmmo)
+        if (shotCount > 6)
         {
-            // Can't shoot
-            // Display text saying out of ammo.
+            outOfAmmo = true;
         }
 
         // Rootin' Tootin' Shootin' 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !outOfAmmo)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !outOfAmmo && ObjectPool.m_SharedInstance.ObjectsAvailable() <= ObjectPool.m_SharedInstance.m_nAmountToPool)
         {
             // Get access to the bullet in the object pool.
             GameObject copy = ObjectPool.m_SharedInstance.GetPooledObject();
@@ -48,7 +49,19 @@ public class Player : MonoBehaviour {
 
             //// Tell the animator the bullet is finished being shot.
             //m_Animator.SetBool("shooting", false);
+
+            shotCount++;
         }
 
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+
+        }
+
+    }
+
+    void MagneticPull()
+    {
+        shotCount = 0;
     }
 }

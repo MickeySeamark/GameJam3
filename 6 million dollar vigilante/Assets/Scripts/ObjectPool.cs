@@ -97,7 +97,7 @@ public class ObjectPool : MonoBehaviour
 
     public int ObjectsAvailable()
     {
-        int left = 0;
+        int left = 1;
         
         // For loop through all the pooled objects.
         for (int i = 0; i < m_lstPooledObjects.Count; i++)
