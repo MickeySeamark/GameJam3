@@ -77,6 +77,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+            // set all the bullets to false
+            for(int i = 0; i < ObjectPool.m_SharedInstance.m_nAmountToPool; ++i)
+            {
+                ObjectPool.m_SharedInstance.GetObject(i).SetActive(false);
+            }
+
             shotCount = 0;
         }
     }

@@ -95,10 +95,15 @@ public class ObjectPool : MonoBehaviour
         return null;
     }
 
+    public GameObject GetObject(int i)
+    {
+        return m_lstPooledObjects[i];
+    }
+
     public int ObjectsAvailable()
     {
         int left = 1;
-        
+
         // For loop through all the pooled objects.
         for (int i = 0; i < m_lstPooledObjects.Count; i++)
         {
