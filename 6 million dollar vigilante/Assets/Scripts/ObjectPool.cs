@@ -31,7 +31,7 @@ public class ObjectPool : MonoBehaviour
     //------------------------------------------------------------------------------------------
     [Tooltip("An int to choose how many object you want in the pool.")]
     public int m_nAmountToPool;
-    
+
     //------------------------------------------------------------------------------------------
     // Use this for initialization, called even if the script is disabled.
     //------------------------------------------------------------------------------------------
@@ -93,5 +93,19 @@ public class ObjectPool : MonoBehaviour
 
         // If the pooled object is already turned on don't return it. 
         return null;
+    }
+
+    public int ObjectsAvailable()
+    {
+        int left = 0;
+        
+        // For loop through all the pooled objects.
+        for (int i = 0; i < m_lstPooledObjects.Count; i++)
+        {
+            if (m_lstPooledObjects[i].activeInHierarchy)
+                ++left;
+        }
+
+        return left;
     }
 }
