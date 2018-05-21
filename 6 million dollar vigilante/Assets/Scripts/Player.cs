@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
 
     public LayerMask layerMask;
 
+    private List<Transform> BulletsLocations;
 
+    public Transform BulletsReloadSpot;
 
     // Shoot speed
     public float shootSpeed = 100;
@@ -23,6 +25,16 @@ public class Player : MonoBehaviour
 
     // shotCount
     private int shotCount;
+
+    // RELOAD
+    // how long it takes the bullets to reload
+    private float fReloadDuration = 1.0f;
+
+    // if the bullets are being pulled back
+    private bool bBulletsLerp = false;
+
+    // the count for bullets lerping back to the gun.
+    private float fBulletsLerpCount = 0.0f;
 
     // Use this for initialization
     void Start()
@@ -89,14 +101,38 @@ public class Player : MonoBehaviour
      */
     void MagneticPull()
     {
+        // reload gun
         if (Input.GetKeyDown(KeyCode.R))
         {
-            // set all the bullets to false
-            for(int i = 0; i < ObjectPool.m_SharedInstance.m_nAmountToPool; ++i)
-            {
-                ObjectPool.m_SharedInstance.GetObject(i).SetActive(false);
-            }
+            bBulletsLerp = true;
 
+            // save the positions of the bullets, for lerping
+            for (int i = 0; i < ObjectPool.m_SharedInstance.m_nAmountToPool; ++i)
+            {
+                BulletsLocations[i] = ObjectPool.m_SharedInstance.GetObject(i).transform;
+            }
+        }
+
+        // whilst bullets reloading
+        if (bBulletsLerp)
+        {
+            // increament the lerp count.
+            fBulletsLerpCount += Time.deltaTime;
+
+            // the bullets travelling from their positions to the gun
+            for (int i = 0; i < ObjectPool.m_SharedInstance.m_nAmountToPool; ++i)
+                ObjectPool.m_SharedInstance.GetObject(i).transform.position = Vector3.Lerp(BulletsLocations[i].position, BulletsReloadSpot.position, fBulletsLerpCount / fReloadDuration);
+
+        }
+        // after the bullets are reloaded
+        if (fBulletsLerpCount >= fReloadDuration)
+        {
+            // delete all bullets
+            ObjectPool.m_SharedInstance.DestroyAll();
+
+            // reset these values, we need to reuse them.
+            bBulletsLerp = false;
+            fBulletsLerpCount = 0.0f;
             shotCount = 0;
         }
     }

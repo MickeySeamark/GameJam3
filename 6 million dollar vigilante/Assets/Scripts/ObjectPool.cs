@@ -100,6 +100,14 @@ public class ObjectPool : MonoBehaviour
         return m_lstPooledObjects[i];
     }
 
+    public void DestroyAll()
+    {
+        for (int i = 0; i < m_SharedInstance.m_nAmountToPool; ++i)
+        {
+            m_lstPooledObjects[i].SetActive(false);
+        }
+    }
+
     public int ObjectsAvailable()
     {
         int left = 1;
