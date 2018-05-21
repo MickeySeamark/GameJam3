@@ -137,11 +137,11 @@ public class Player : MonoBehaviour
 
             // the bullets travelling from their positions to the gun
             for (int i = 0; i < ObjectPool.m_SharedInstance.m_nAmountToPool; ++i)
-                ObjectPool.m_SharedInstance.GetObject(i).transform.position = Vector3.Lerp(BulletsLocations[i].position, BulletsReloadSpot.position, fBulletsLerpCount / fReloadDuration);
+                ObjectPool.m_SharedInstance.GetObject(i).transform.position = Vector3.Lerp(BulletsLocations[i].position, BulletsReloadSpot.position, fBulletsLerpCount / reloadDuration);
 
         }
         // after the bullets are reloaded
-        if (fBulletsLerpCount >= fReloadDuration)
+        if (fBulletsLerpCount >= reloadDuration)
         {
             // delete all bullets
             ObjectPool.m_SharedInstance.DestroyAll();
