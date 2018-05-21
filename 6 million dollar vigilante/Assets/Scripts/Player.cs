@@ -4,22 +4,38 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // Main Camera.
+    [Tooltip("This is for the Main Camera. It allows for the mouse to interact with the screen for shooting where you click.")]
     public Camera MainCamera;
 
+    // The layers that interact when clicked on.
+    [Tooltip("This must be set to the setting everything. It means that the mouse can shoot anywhere.")]
     public LayerMask layerMask;
 
+    // Empty GameObject that is where the bullets get shot from.
+    [Tooltip("This is where the bullets shoot from. The empty game object positioned at the end of the gun.")]
     public GameObject shootSpot;
 
-    private List<Transform> BulletsLocations;
-
+    // Empty GameObject that is where the bullets come back to when R is pressed.
+    [Tooltip("This is where the bullets come back to when the magnet is used. It is best to use an empty game object for this.")]
     public Transform BulletsReloadSpot;
 
-    // Shoot speed
-    public float shootSpeed = 100;
+    // Shoot speed.
+    [Tooltip("The speed that the bullets are fired at. Default is 75.")]
+    public float shootSpeed = 75;
 
+    // RELOAD
+    // How long it takes the bullets to reload.
+    [Tooltip("The amount of time in seconds that it takes for the bullets to disappear after magnet.")]
+    public float reloadDuration = 1.0f;
+
+    // Stores the bullets location for the magnet.
+    private List<Transform> BulletsLocations;
+
+    // The position to shoot the bullets at.
     private Vector3 shootLocation;
 
-    // Access to the shoot script
+    // Access to the shoot script.
     private GameObject shoot;
 
     // Whether the player is out of ammo or not.
@@ -28,9 +44,6 @@ public class Player : MonoBehaviour
     // shotCount
     private int shotCount;
 
-    // RELOAD
-    // how long it takes the bullets to reload
-    public float fReloadDuration = 1.0f;
 
     // if the bullets are being pulled back
     private bool bBulletsLerp = false;
@@ -69,8 +82,8 @@ public class Player : MonoBehaviour
     //--------------------------------------------
 
     /*
-        Shoot, it shoots a bullet at the mouse's pos.
-    */
+     *   Shoot, it shoots a bullet at the mouse's pos.
+     */
     void Shoot()
     {
 
@@ -99,8 +112,8 @@ public class Player : MonoBehaviour
     }
 
     /* 
-        Magnetic pull the bullets back to the player
-        This is the same as reloading.
+     *  Magnetic pull the bullets back to the player
+     *   This is the same as reloading.
      */
     void MagneticPull()
     {
@@ -141,8 +154,8 @@ public class Player : MonoBehaviour
     }
 
     /*
-        Ammo Amount Check
-    */
+     * Checks the ammo amount to see whether there are still bullets available.
+     */
     void AmmoAmountCheck()
     {
         if (shotCount > 6)
@@ -151,6 +164,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    /*
+     * Mouse click to screen using a raycast. 
+     * It shoots a raycast where clicked on the screen and shoots the 
+     * bullet at the position that the ray hits somehthing.
+     */
     void RayCheck()
     {
         RaycastHit hit; // Information on what a raycast hits
@@ -168,12 +186,5 @@ public class Player : MonoBehaviour
             }
         }
         //Debug.Log(Input.mousePosition);
-    }
-
-    void BulletMassToHeavy()
-    {
-        // Invoke after 2.5 seconds, mass gets set to 1.
-
-        // 
     }
 }
