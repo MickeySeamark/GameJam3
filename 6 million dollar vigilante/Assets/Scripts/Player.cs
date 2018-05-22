@@ -44,7 +44,6 @@ public class Player : MonoBehaviour
     // shotCount
     private int shotCount;
 
-
     // if the bullets are being pulled back
     private bool bBulletsLerp = false;
 
@@ -143,11 +142,15 @@ public class Player : MonoBehaviour
         // after the bullets are reloaded
         if (fBulletsLerpCount >= reloadDuration)
         {
+
+            for (int i = 0; i < ObjectPool.m_SharedInstance.m_nAmountToPool; ++i)
+            {
+                ObjectPool.m_SharedInstance.GetObject(i).GetComponent<Rigidbody>().useGravity = false;
+            }
             // delete all bullets
             ObjectPool.m_SharedInstance.DestroyAll();
-
-            // reset these values, we need to reuse them.
-            bBulletsLerp = false;
+                // reset these values, we need to reuse them.
+                bBulletsLerp = false;
             fBulletsLerpCount = 0.0f;
             shotCount = 0;
         }
