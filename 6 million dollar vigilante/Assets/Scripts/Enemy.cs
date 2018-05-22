@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour {
     Quaternion rosPos = new Quaternion(0, 0, 0, 0);
     Quaternion deadPos = new Quaternion(90.0f, 0, 0, 90.0f);
     
-    [HideInInspector]
+    
     public bool bAlive = true;
 
     // Use this for initialization
@@ -22,6 +22,11 @@ public class Enemy : MonoBehaviour {
         if (bAlive)
         {
             transform.rotation = rosPos;
+            gameObject.tag = "Enemy";
+        }
+        if(!bAlive)
+        {
+            gameObject.tag = "DeadEnemy";
         }
 
     }
