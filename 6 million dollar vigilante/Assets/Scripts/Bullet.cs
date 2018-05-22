@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
 {
     public int bounceCount;
 
+    public static int scoreOnBullet;
+
     private Player player = new Player();
     // Use this for initialization
     void Awake()
@@ -42,6 +44,10 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         bounceCount++;
+        if(collision.gameObject.tag == "Enemy")
+        {
+            scoreOnBullet++;
+        }
     }
 
     private void ResetValues()
