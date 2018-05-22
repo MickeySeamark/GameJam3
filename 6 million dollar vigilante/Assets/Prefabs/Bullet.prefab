@@ -112,6 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceCount: 0
+  Enemy1Score: 100
+  Enemy2Score: 500
+  Enemy3Score: 1000
 --- !u!136 &136503815866883206
 CapsuleCollider:
   m_ObjectHideFlags: 1

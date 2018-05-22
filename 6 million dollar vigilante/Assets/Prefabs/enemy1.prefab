@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114937267729199688}
   m_Layer: 8
   m_Name: enemy1
-  m_TagString: Enemy
+  m_TagString: DeadEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1910998209358190}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.17, y: 1.2731907, z: -4.06}
+  m_LocalPosition: {x: -0.04154539, y: -2.4299994, z: 11.990679}
   m_LocalScale: {x: 1, y: 2.54638, z: 0.53942}
   m_Children: []
   m_Father: {fileID: 0}

@@ -7,8 +7,9 @@ public class Enemy : MonoBehaviour {
     Quaternion rosPos = new Quaternion(0, 0, 0, 0);
     Quaternion deadPos = new Quaternion(90.0f, 0, 0, 90.0f);
     
-    
     public bool bAlive = true;
+
+    public int playerNumber;
 
     // Use this for initialization
     void Start ()
@@ -44,4 +45,5 @@ public class Enemy : MonoBehaviour {
             col.GetComponent<Rigidbody>().useGravity = true;
         }
     }
+
 }

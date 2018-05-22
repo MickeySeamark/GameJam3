@@ -47,14 +47,16 @@ public class Player : MonoBehaviour
     private int shotCount;
 
     // if the bullets are being pulled back
-    private bool bBulletsLerp = false;
+    private bool bBulletsLerp;
 
     // the count for bullets lerping back to the gun.
-    private float fBulletsLerpCount = 0.0f;
+    private float fBulletsLerpCount;
 
     // Use this for initialization
     void Start()
     {
+        bBulletsLerp = false;
+        fBulletsLerpCount = 0.0f;
         layerMask = ~(LayerMask.NameToLayer("Enemy"));
         BulletsLocations = new List<Transform>();
     }
