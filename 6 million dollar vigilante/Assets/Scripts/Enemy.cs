@@ -4,18 +4,39 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
+    Quaternion rosPos = new Quaternion(0, 0, 0, 0);
+    Quaternion deadPos = new Quaternion(90.0f, 0, 0, 90.0f);
+    
     [HideInInspector]
     public bool bAlive = true;
 
     // Use this for initialization
     void Start ()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
+        transform.rotation = deadPos;
+    }
 
+    // Update is called once per frame
+    void Update ()
+    {
+        if (bAlive)
+        {
+            transform.rotation = rosPos;
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Bullet")
+        {
+            bAlive = false;
+            transform.rotation = deadPos;
+        }
+
+        if (col.tag == ("Bullet"))
+        {
+            col.GetComponent<Rigidbody>().useGravity = true;
+        }
     }
 }

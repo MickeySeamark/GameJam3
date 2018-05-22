@@ -23,6 +23,7 @@ public class Point2PointCamera : MonoBehaviour
 
     // how long the lerp has been happening for.
     private float fLerpCount = 0.0f;
+    
 
     // Use this for initialization
     void Start()
@@ -37,7 +38,7 @@ public class Point2PointCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (RoundManager.bAllEnemiesDead)
             bJumpToNextPoint = true;
 
         // if the camera jumps to the next point or not.
@@ -68,9 +69,15 @@ public class Point2PointCamera : MonoBehaviour
             // increment the next point counter.
             ++nNextPoint;
 
+            // increment round count
+            ++RoundManager.nCurrRound;
+
             // reset these values, we need to reuse them.
             bLerp = false;
             fLerpCount = 0.0f;
+            
+            RoundManager.bAllEnemiesDead = false;
+            RoundManager.nHowManyDead = 0;
         }
     }
 }
