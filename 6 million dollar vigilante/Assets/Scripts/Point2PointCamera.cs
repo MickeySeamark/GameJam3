@@ -23,7 +23,7 @@ public class Point2PointCamera : MonoBehaviour
 
     // how long the lerp has been happening for.
     private float fLerpCount = 0.0f;
-    
+
 
     // Use this for initialization
     void Start()
@@ -42,7 +42,7 @@ public class Point2PointCamera : MonoBehaviour
             bJumpToNextPoint = true;
 
         // if the camera jumps to the next point or not.
-        if (bJumpToNextPoint && nNextPoint < lstLocationPoints.Count)
+        if (bJumpToNextPoint)
         {
             // tell the lerp if check to lerp below
             bLerp = true;
@@ -57,11 +57,14 @@ public class Point2PointCamera : MonoBehaviour
             // increament the lerp count.
             fLerpCount += Time.deltaTime;
 
-            // where the camera will jump next, over how long.
-            transform.position = Vector3.Lerp(lstLocationPoints[nNextPoint - 1].position, lstLocationPoints[nNextPoint].position, fLerpCount / fJumpDuration);
+            if (nNextPoint < lstLocationPoints.Count)
+            {
+                // where the camera will jump next, over how long.
+                transform.position = Vector3.Lerp(lstLocationPoints[nNextPoint - 1].position, lstLocationPoints[nNextPoint].position, fLerpCount / fJumpDuration);
 
-            // where the camera will look next, over time.
-            transform.LookAt(Vector3.Lerp(lstLookAtPoints[nNextPoint-1].position, lstLookAtPoints[nNextPoint].position, fLerpCount / fJumpDuration));
+                // where the camera will look next, over time.
+                transform.LookAt(Vector3.Lerp(lstLookAtPoints[nNextPoint - 1].position, lstLookAtPoints[nNextPoint].position, fLerpCount / fJumpDuration));
+            }
         }
         // when the lerp is finished.
         if (fLerpCount >= fJumpDuration)
@@ -75,7 +78,7 @@ public class Point2PointCamera : MonoBehaviour
             // reset these values, we need to reuse them.
             bLerp = false;
             fLerpCount = 0.0f;
-            
+
             RoundManager.bAllEnemiesDead = false;
             RoundManager.nHowManyDead = 0;
         }

@@ -73,14 +73,17 @@ public class RoundManager : MonoBehaviour
 
         nHowManyDead = 0;
 
-        // if all the enemies in this room have died, set bAllEnemiesDead to true for that round
-        for (int i = 0; i < lstRoom[nCurrRound].lstEnemy.Count; ++i)
+        if (nCurrRound < lstRoom.Count)
         {
-            if (!lstRoom[nCurrRound].lstEnemy[i].bAlive)
-                ++nHowManyDead;
+            // if all the enemies in this room have died, set bAllEnemiesDead to true for that round
+            for (int i = 0; i < lstRoom[nCurrRound].lstEnemy.Count; ++i)
+            {
+                if (!lstRoom[nCurrRound].lstEnemy[i].bAlive)
+                    ++nHowManyDead;
 
-            if (nHowManyDead == lstRoom[nCurrRound].lstEnemy.Count)
-                bAllEnemiesDead = true;
+                if (nHowManyDead == lstRoom[nCurrRound].lstEnemy.Count)
+                    bAllEnemiesDead = true;
+            }
         }
 
         if (nCurrRound == lstRoom.Count)
