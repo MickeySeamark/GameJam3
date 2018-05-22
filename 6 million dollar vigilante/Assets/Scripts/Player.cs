@@ -190,4 +190,9 @@ public class Player : MonoBehaviour
         }
         //Debug.Log(Input.mousePosition);
     }
+
+    public float GetReloadDuration()
+    {
+        return reloadDuration;
+    }
 }

@@ -6,10 +6,12 @@ public class Bullet : MonoBehaviour
 {
     public int bounceCount;
 
+    private Player player = new Player();
     // Use this for initialization
     void Awake()
     {
         bounceCount = 0;
+
         //gameObject.GetComponent<Rigidbody>().useGravity = false;
     }
 
@@ -21,7 +23,10 @@ public class Bullet : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             bounceCount = 0;
+            gameObject.GetComponent<CapsuleCollider>().isTrigger = true;
+            Invoke("ResetValues", player.GetReloadDuration());
         }
+        
 
         if(bounceCount > 3)
         {
@@ -39,5 +44,8 @@ public class Bullet : MonoBehaviour
         bounceCount++;
     }
 
-    
+    private void ResetValues()
+    {
+        gameObject.GetComponent<CapsuleCollider>().isTrigger = false;
+    }
 }
