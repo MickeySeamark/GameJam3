@@ -41,7 +41,7 @@ public class Point2PointCamera : MonoBehaviour
             bJumpToNextPoint = true;
 
         // if the camera jumps to the next point or not.
-        if (bJumpToNextPoint)
+        if (bJumpToNextPoint && nNextPoint < lstLocationPoints.Count)
         {
             // tell the lerp if check to lerp below
             bLerp = true;
