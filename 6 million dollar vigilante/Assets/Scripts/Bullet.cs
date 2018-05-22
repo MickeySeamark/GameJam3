@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
-    private int bounceCount;
+    public int bounceCount;
 
     // Use this for initialization
     void Awake()
     {
         bounceCount = 0;
+        //gameObject.GetComponent<Rigidbody>().useGravity = false;
     }
 
     // Update is called once per frame
@@ -18,9 +18,19 @@ public class Bullet : MonoBehaviour
     {
         Debug.Log(bounceCount);
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            bounceCount = 0;
+        }
+
+
         if(bounceCount > 3)
         {
             gameObject.GetComponent<Rigidbody>().useGravity = true;
+        }
+        else
+        {
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
         }
     }
 
@@ -28,4 +38,6 @@ public class Bullet : MonoBehaviour
     {
         bounceCount++;
     }
+
+    
 }
