@@ -16,6 +16,5 @@ public class CrossHairMousePos : MonoBehaviour
     void Update()
     {
         crossHairImage.transform.position = Input.mousePosition;
-
     }
 }
