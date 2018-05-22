@@ -23,4 +23,13 @@ public class EnemyTrigger : MonoBehaviour {
             transform.rotation = rosPos;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Bullet")
+        {
+            isActive = false;
+            transform.rotation = deadPos;
+        }
+    }
 }
