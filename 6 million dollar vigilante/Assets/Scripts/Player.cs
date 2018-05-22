@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     // The position to shoot the bullets at.
     private Vector3 shootLocation;
 
+    private Vector3 mouseLocation;
+
     // Access to the shoot script.
     private GameObject shoot;
 
@@ -45,14 +47,16 @@ public class Player : MonoBehaviour
     private int shotCount;
 
     // if the bullets are being pulled back
-    private bool bBulletsLerp = false;
+    private bool bBulletsLerp;
 
     // the count for bullets lerping back to the gun.
-    private float fBulletsLerpCount = 0.0f;
+    private float fBulletsLerpCount;
 
     // Use this for initialization
     void Start()
     {
+        bBulletsLerp = false;
+        fBulletsLerpCount = 0.0f;
         layerMask = ~(LayerMask.NameToLayer("Enemy"));
         BulletsLocations = new List<Transform>();
     }
@@ -60,6 +64,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (mouseLocation.z > (transform.position.z + 1))
+        {
+            Vector3 invalidPos;
+            invalidPos = mouseLocation;
+            invalidPos.y = 0.0f;
+
+            gameObject.transform.LookAt(invalidPos);
+        }
         // Checks amount of ammo to see whether
         // they have any ammo left to shoot.
         AmmoAmountCheck();
@@ -149,8 +161,8 @@ public class Player : MonoBehaviour
             }
             // delete all bullets
             ObjectPool.m_SharedInstance.DestroyAll();
-                // reset these values, we need to reuse them.
-                bBulletsLerp = false;
+            // reset these values, we need to reuse them.
+            bBulletsLerp = false;
             fBulletsLerpCount = 0.0f;
             shotCount = 0;
         }
@@ -177,11 +189,13 @@ public class Player : MonoBehaviour
         RaycastHit hit; // Information on what a raycast hits
         Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition); // Ray to use when raycasting
 
-        if (Input.GetKeyDown(KeyCode.Mouse0)) // Checks if left mouse button is pressed
+        if (Physics.Raycast(ray, out hit, 1000.0f, layerMask)) // Sends raycast and checks if anything is hit
         {
-            if (Physics.Raycast(ray, out hit, 1000.0f, layerMask)) // Sends raycast and checks if anything is hit
+            Transform objectHit = hit.transform; // Stores the hit object
+            mouseLocation = hit.point;
+
+            if (Input.GetKeyDown(KeyCode.Mouse0)) // Checks if left mouse button is pressed
             {
-                Transform objectHit = hit.transform; // Stores the hit object
                 //objectHit.GetComponent<Rigidbody>().AddForce(0, 0, 200.0f); // Applies a force to the object hit
                 //hitTransform.position = hit.transform.position;
 
@@ -195,4 +209,6 @@ public class Player : MonoBehaviour
     {
         return reloadDuration;
     }
+
+
 }

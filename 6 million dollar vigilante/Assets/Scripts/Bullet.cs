@@ -6,6 +6,14 @@ public class Bullet : MonoBehaviour
 {
     public int bounceCount;
 
+    public static int scoreOnBullet;
+
+    public int Enemy1Score;
+    public int Enemy2Score;
+    public int Enemy3Score;
+
+
+
     private Player player = new Player();
     // Use this for initialization
     void Awake()
@@ -42,6 +50,31 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         bounceCount++;
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if (collision.gameObject.GetComponent<Enemy>().bAlive && collision.gameObject.GetComponent<Enemy>().playerNumber == 1)
+            {
+                scoreOnBullet += Enemy1Score;
+            }
+            if (collision.gameObject.GetComponent<Enemy>().bAlive && collision.gameObject.GetComponent<Enemy>().playerNumber == 2)
+            {
+                scoreOnBullet += Enemy2Score;
+            }
+            if (collision.gameObject.GetComponent<Enemy>().bAlive && collision.gameObject.GetComponent<Enemy>().playerNumber == 3)
+            {
+                scoreOnBullet += Enemy3Score;
+            }
+        }
+        //if (collision.gameObject.tag == "Enemy2")
+        //{
+        //    scoreOnBullet += Enemy2Score;
+        //}
+
+        //if (collision.gameObject.tag == "Enemy3")
+        //{
+        //    scoreOnBullet += Enemy3Score;
+        //}
     }
 
     private void ResetValues()

@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CrossHairMousePos : MonoBehaviour
+public class Score : MonoBehaviour
 {
-    public Image crossHairImage;
+    public static int score;
+
+    public Text scoreText;
+    
+
     // Use this for initialization
     void Start()
     {
-        Cursor.visible = false;
+        score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        crossHairImage.transform.position = Input.mousePosition;
+        score = Bullet.scoreOnBullet;
+        scoreText.text = score.ToString();
     }
 }
