@@ -9,33 +9,19 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1132570657381530}
+  m_RootGameObject: {fileID: 1978703575401442}
   m_IsPrefabParent: 1
---- !u!1 &1132570657381530
+--- !u!1 &1050148687714928
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4590881875708004}
-  m_Layer: 0
-  m_Name: Mafia_Boss1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1394670904053072
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4419965118974518}
-  - component: {fileID: 33056283795230708}
-  - component: {fileID: 23989230441009422}
+  - component: {fileID: 4046523611817696}
+  - component: {fileID: 33065418482381514}
+  - component: {fileID: 23165038435291334}
+  - component: {fileID: 114406517775160488}
   m_Layer: 0
   m_Name: polySurface13
   m_TagString: Untagged
@@ -43,39 +29,54 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4419965118974518
+--- !u!1 &1978703575401442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4879920647331354}
+  m_Layer: 0
+  m_Name: Mafia_Boss1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4046523611817696
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1394670904053072}
+  m_GameObject: {fileID: 1050148687714928}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.057789277, y: -0.026926855, z: 0.023235776}
+  m_LocalPosition: {x: 0.0032841729, y: -0.026926855, z: 0.023886241}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4590881875708004}
+  m_Father: {fileID: 4879920647331354}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4590881875708004
+--- !u!4 &4879920647331354
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1132570657381530}
+  m_GameObject: {fileID: 1978703575401442}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.03968862, y: 0.026926855, z: -0.00046806523}
+  m_LocalPosition: {x: 18.140163, y: 9.342, z: -14.809689}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
-  - {fileID: 4419965118974518}
+  - {fileID: 4046523611817696}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23989230441009422
+--- !u!23 &23165038435291334
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1394670904053072}
+  m_GameObject: {fileID: 1050148687714928}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -104,10 +105,23 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33056283795230708
+--- !u!33 &33065418482381514
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1394670904053072}
+  m_GameObject: {fileID: 1050148687714928}
   m_Mesh: {fileID: 4300002, guid: be6038f16329d0643b33551bc825e173, type: 3}
+--- !u!114 &114406517775160488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050148687714928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502dde6a524504941ac1623df2dac32c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bAlive: 1
+  playerNumber: 0
