@@ -23,7 +23,7 @@ public class AmmoCount : MonoBehaviour
     {
 
         bullets = oPool.GetComponent<ObjectPool>().ObjectsAvailable();
-        print(bullets);
+        //print(bullets);
         switch (bullets)
         {
             default:

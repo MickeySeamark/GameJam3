@@ -23,11 +23,11 @@ public class Bullet : MonoBehaviour
             bounceCount = 0;
         }
 
-
         if(bounceCount > 3)
         {
             gameObject.GetComponent<Rigidbody>().useGravity = true;
         }
+
         else
         {
             gameObject.GetComponent<Rigidbody>().useGravity = false;
