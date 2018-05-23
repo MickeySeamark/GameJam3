@@ -75,12 +75,15 @@ public class RoundManager : MonoBehaviour
 
         if (nCurrRound < lstRoom.Count)
         {
+            if (lstRoom[nCurrRound].lstEnemy[0].name == "skip")
+                bAllEnemiesDead = true;
+
             // if all the enemies in this room have died, set bAllEnemiesDead to true for that round
             for (int i = 0; i < lstRoom[nCurrRound].lstEnemy.Count; ++i)
             {
                 if (!lstRoom[nCurrRound].lstEnemy[i].bAlive)
                     ++nHowManyDead;
-
+                
                 if (nHowManyDead == lstRoom[nCurrRound].lstEnemy.Count)
                     bAllEnemiesDead = true;
             }

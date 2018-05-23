@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4072952205779958}
   - component: {fileID: 114685458805771860}
+  - component: {fileID: 65710911541098446}
   m_Layer: 0
   m_Name: Civilian_Target1
   m_TagString: Untagged
@@ -112,6 +113,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890490199494502}
   m_Mesh: {fileID: 4300000, guid: be6038f16329d0643b33551bc825e173, type: 3}
+--- !u!65 &65710911541098446
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1421342547270362}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114685458805771860
 MonoBehaviour:
   m_ObjectHideFlags: 1

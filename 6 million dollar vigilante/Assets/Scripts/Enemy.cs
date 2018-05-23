@@ -4,45 +4,50 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-    Quaternion rosPos = new Quaternion(0, 0, 0, 0);
-    Quaternion deadPos = new Quaternion(90.0f, 0, 0, 90.0f);
+    //Quaternion rosPos = new Quaternion(0, 0, 0, 0);
+    //Quaternion deadPos = new Quaternion(90.0f, 0, 0, 90.0f);
     
     public bool bAlive = true;
-
+    //
     public int playerNumber;
 
     // Use this for initialization
     void Start ()
     {
-        transform.rotation = deadPos;
+        gameObject.tag = "Enemy";
+        //gameObject.GetComponent<BoxCollider>().
+        //transform.rotation = deadPos;
     }
 
     // Update is called once per frame
     void Update ()
     {
-        if (bAlive)
-        {
-            transform.rotation = rosPos;
-            gameObject.tag = "Enemy";
-        }
-        if(!bAlive)
-        {
-            gameObject.tag = "DeadEnemy";
-        }
+        //if (bAlive)
+        //{
+        //    transform.rotation = rosPos;
+        //    gameObject.tag = "Enemy";
+        //}
+        //if(!bAlive)
+        //{
+        //    gameObject.tag = "DeadEnemy";
+        //}
 
     }
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Bullet")
+        if (col.gameObject.tag == "Bullet" && bAlive)
         {
             bAlive = false;
-            transform.rotation = deadPos;
-        }
-
-        if (col.tag == ("Bullet"))
-        {
+            gameObject.tag = "DeadEnemy";
             col.GetComponent<Rigidbody>().useGravity = true;
+
+            Vector3 rotateAxis = transform.right;
+            Quaternion rotator = Quaternion.AngleAxis(90.0f, rotateAxis);
+
+            transform.rotation = rotator * transform.rotation;
+
+            //transform.rotation = rosPos;
         }
     }
 
