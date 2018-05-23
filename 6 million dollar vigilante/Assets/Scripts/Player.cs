@@ -57,21 +57,21 @@ public class Player : MonoBehaviour
     {
         bBulletsLerp = false;
         fBulletsLerpCount = 0.0f;
-        layerMask = ~(LayerMask.NameToLayer("Enemy"));
+        //layerMask = ~(LayerMask.NameToLayer("Player"));
         BulletsLocations = new List<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (mouseLocation.z > (transform.position.z + 1))
-        {
-            Vector3 invalidPos;
-            invalidPos = mouseLocation;
-            invalidPos.y = 0.0f;
+        //if (mouseLocation.z > (transform.position.z + 1))
+        //{
 
-            gameObject.transform.LookAt(invalidPos);
-        }
+        //}
+        Vector3 invalidPos;
+        invalidPos = mouseLocation;
+        invalidPos.y = 0.0f;
+        gameObject.transform.LookAt(invalidPos);
         // Checks amount of ammo to see whether
         // they have any ammo left to shoot.
         AmmoAmountCheck();
@@ -110,8 +110,11 @@ public class Player : MonoBehaviour
             // Get the snowballs rigidbody
             Rigidbody rb = copy.GetComponent<Rigidbody>();
 
+            rb.angularVelocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
             copy.transform.LookAt(shootLocation);
 
+            Debug.Log(copy.transform.forward);
             // Apply a 'shooting' force to the bullet.
             rb.AddForce(copy.transform.forward * shootSpeed, ForceMode.Impulse);
 
@@ -194,8 +197,12 @@ public class Player : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 1000.0f, layerMask)) // Sends raycast and checks if anything is hit
         {
             Transform objectHit = hit.transform; // Stores the hit object
-            mouseLocation = hit.point;
 
+
+            //if (layerMask.ToString() != "Player")
+            //{
+            //}
+            mouseLocation = hit.point;
             if (Input.GetKeyDown(KeyCode.Mouse0)) // Checks if left mouse button is pressed
             {
                 //objectHit.GetComponent<Rigidbody>().AddForce(0, 0, 200.0f); // Applies a force to the object hit

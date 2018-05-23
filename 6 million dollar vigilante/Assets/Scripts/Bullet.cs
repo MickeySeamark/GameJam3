@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(bounceCount);
+        //Debug.Log(bounceCount);
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -49,6 +49,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("hit");
         bounceCount++;
 
         if (collision.gameObject.tag == "Enemy")

@@ -50,19 +50,19 @@ public class RoundManager : MonoBehaviour
                         lstRoom[i].lstEnemy.Add(transform.GetChild(i).transform.GetChild(j).GetComponent<Enemy>());
                     }
                 }
-                Debug.Log("Room/s found.");
+                //Debug.Log("Room/s found.");
             }
             else
             {
                 for (int i = 0; i < 100; ++i)
-                    Debug.LogError("The round mananaget does not have any rooms, please name them \"Room1, Room2 etc...\"!?!?! Silly designers!.");
-                EditorApplication.isPlaying = false;
+                    //Debug.LogError("The round mananaget does not have any rooms, please name them \"Room1, Room2 etc...\"!?!?! Silly designers!.");
+                //EditorApplication.isPlaying = false;
             }
         else
         {
             for (int i = 0; i < 100; ++i)
-                Debug.LogError("Please spell the round mamanger as \"RoundManager\"!?!?! Silly designers!.");
-            EditorApplication.isPlaying = false;
+                //Debug.LogError("Please spell the round mamanger as \"RoundManager\"!?!?! Silly designers!.");
+            //EditorApplication.isPlaying = false;
         }
     }
 
