@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4721691308108630}
   - component: {fileID: 33792681629332394}
   - component: {fileID: 23785596386956252}
+  - component: {fileID: 114439514203768542}
+  - component: {fileID: 65412268427470080}
   m_Layer: 0
   m_Name: polySurface4
   m_TagString: Untagged
@@ -36,7 +38,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4641568547204172}
-  - component: {fileID: 114474478531869084}
   m_Layer: 0
   m_Name: Mafia_Boss2
   m_TagString: Untagged
@@ -51,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1805792322001008}
   m_LocalRotation: {x: -0, y: -0.60876125, z: -0, w: 0.7933535}
-  m_LocalPosition: {x: 13.078341, y: 1, z: -14.44015}
+  m_LocalPosition: {x: 1.5379028, y: -1.3444211, z: -6.340661}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 4721691308108630}
@@ -112,12 +113,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087144530956516}
   m_Mesh: {fileID: 4300006, guid: be6038f16329d0643b33551bc825e173, type: 3}
---- !u!114 &114474478531869084
+--- !u!65 &65412268427470080
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1087144530956516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.030381558, y: 0.055238675, z: 0.0013009309}
+  m_Center: {x: 0.000000014901161, y: 0.027619338, z: -0.00065046543}
+--- !u!114 &114439514203768542
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1805792322001008}
+  m_GameObject: {fileID: 1087144530956516}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 502dde6a524504941ac1623df2dac32c, type: 3}
