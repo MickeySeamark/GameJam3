@@ -95,4 +95,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bAlive: 1
-  playerNumber: 0
+  playerNumber: 1
