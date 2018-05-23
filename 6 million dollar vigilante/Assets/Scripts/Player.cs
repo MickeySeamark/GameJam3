@@ -119,7 +119,9 @@ public class Player : MonoBehaviour
             //m_Animator.SetBool("shooting", false);
 
             shotCount++;
+            transform.GetChild(1).GetComponent<Animator>().SetBool("Shooting", true);
         }
+        //
     }
 
     /* 
