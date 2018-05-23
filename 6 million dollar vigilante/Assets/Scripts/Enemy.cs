@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour {
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Bullet" && bAlive)
+        if (col.gameObject.tag == "Bullet" && bAlive && tag != "Boss")
         {
             bAlive = false;
             gameObject.tag = "DeadEnemy";
