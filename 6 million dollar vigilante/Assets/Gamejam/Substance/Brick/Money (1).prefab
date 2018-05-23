@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 33186081483989120}
   - component: {fileID: 23347805588107044}
   - component: {fileID: 95298530171426640}
+  - component: {fileID: 54776414703035508}
+  - component: {fileID: 65970707708061186}
   m_Layer: 0
   m_Name: Money (1)
   m_TagString: Untagged
@@ -35,13 +37,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1463313454301996}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33.412426, y: -45.782845, z: 13.527004}
-  m_LocalScale: {x: 0.0049421196, y: 0.0049421196, z: 0.0049421196}
+  m_LocalRotation: {x: -0, y: -0.48126748, z: -0, w: 0.8765738}
+  m_LocalPosition: {x: -2.542748, y: 2.2, z: 7.033159}
+  m_LocalScale: {x: 0.010184596, y: 0.010184596, z: 0.010184596}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -57.536003, z: 0}
 --- !u!23 &23347805588107044
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -83,6 +85,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1463313454301996}
   m_Mesh: {fileID: 4300000, guid: f7f040ccfad044d4e8206a0750b6bf15, type: 3}
+--- !u!54 &54776414703035508
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1463313454301996}
+  serializedVersion: 2
+  m_Mass: 0.1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65970707708061186
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1463313454301996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 23.238253, y: 14.602846, z: 57.34809}
+  m_Center: {x: 0.0000038146977, y: -0.00017881393, z: 0}
 --- !u!95 &95298530171426640
 Animator:
   serializedVersion: 3

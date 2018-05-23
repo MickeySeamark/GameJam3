@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4405643336987082}
   - component: {fileID: 33774219883744182}
   - component: {fileID: 23814008411210948}
+  - component: {fileID: 114550920113615432}
+  - component: {fileID: 65524003889150198}
   m_Layer: 0
   m_Name: polySurface1
   m_TagString: Untagged
@@ -36,7 +38,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4347718720717926}
-  - component: {fileID: 114970137640851542}
   m_Layer: 0
   m_Name: Mafia_LAim2
   m_TagString: Untagged
@@ -50,14 +51,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1898369965817922}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.3306, y: 1.6052952, z: -4.578}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalRotation: {x: -0, y: 0.8660258, z: -0, w: 0.49999934}
+  m_LocalPosition: {x: 8.717902, y: -0.49442112, z: -1.4806604}
+  m_LocalScale: {x: 50.00002, y: 50, z: 50.00002}
   m_Children:
   - {fileID: 4405643336987082}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 120.00001, z: 0}
 --- !u!4 &4405643336987082
 Transform:
   m_ObjectHideFlags: 1
@@ -112,12 +113,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1634253397915098}
   m_Mesh: {fileID: 4300010, guid: be6038f16329d0643b33551bc825e173, type: 3}
---- !u!114 &114970137640851542
+--- !u!65 &65524003889150198
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1634253397915098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02449724, y: 0.055238675, z: 0.0013009316}
+  m_Center: {x: 0.00025001873, y: 0.027619338, z: -0.00065046543}
+--- !u!114 &114550920113615432
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1898369965817922}
+  m_GameObject: {fileID: 1634253397915098}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 502dde6a524504941ac1623df2dac32c, type: 3}
