@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Room
 {
@@ -52,24 +53,24 @@ public class RoundManager : MonoBehaviour
                 }
                 //Debug.Log("Room/s found.");
             }
-            else
-            {
-                for (int i = 0; i < 100; ++i)
-                    //Debug.LogError("The round mananaget does not have any rooms, please name them \"Room1, Room2 etc...\"!?!?! Silly designers!.");
-                //EditorApplication.isPlaying = false;
-            }
-        else
-        {
-            for (int i = 0; i < 100; ++i)
-                //Debug.LogError("Please spell the round mamanger as \"RoundManager\"!?!?! Silly designers!.");
-            //EditorApplication.isPlaying = false;
-        }
+        //    else
+        //    {
+        //        for (int i = 0; i < 100; ++i)
+        //            //Debug.LogError("The round mananaget does not have any rooms, please name them \"Room1, Room2 etc...\"!?!?! Silly designers!.");
+        //        //EditorApplication.isPlaying = false;
+        //    }
+        //else
+        //{
+        //    for (int i = 0; i < 100; ++i)
+        //        //Debug.LogError("Please spell the round mamanger as \"RoundManager\"!?!?! Silly designers!.");
+        //    //EditorApplication.isPlaying = false;
+        //}
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(nCurrRound);
+        //Debug.Log(nCurrRound);
 
         nHowManyDead = 0;
 
@@ -90,7 +91,7 @@ public class RoundManager : MonoBehaviour
         }
 
         if (nCurrRound == lstRoom.Count)
-            Debug.Log("GameOver");
+            SceneManager.LoadScene(2);
 
     }
 }
