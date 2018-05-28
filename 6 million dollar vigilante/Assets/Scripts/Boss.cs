@@ -18,9 +18,6 @@ public class Boss : MonoBehaviour
     {
         if (BossHealth <= 0)
             bAlive = false;
-
-        if (!bAlive)
-            Destroy(gameObject);
     }
 
 

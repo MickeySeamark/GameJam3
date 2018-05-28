@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class Point2PointCamera : MonoBehaviour
 {
-    // the empty that contains all the camera loc points
-    public GameObject goLocPoints = null;
-
-    // the empty that contains all the camera look points
-    public GameObject goLookPoints = null;
-
     // list of locations that the camera will move to.
-    private List<Transform> lstLocationPoints;
-
+    public List<Transform> lstLocationPoints;
     // list of locations that the camera will look at.
-    private List<Transform> lstLookAtPoints;
+    public List<Transform> lstLookAtPoints;
 
     // how long it takes for the camera to travel from one point to the next.
     public float fJumpDuration = 1.0f;
+
+    // if the camera is to jump to the next point.
+    private bool bJumpToNextPoint = false;
 
     // the next point the camera is to jump to.
     private int nNextPoint = 1;
@@ -27,23 +23,11 @@ public class Point2PointCamera : MonoBehaviour
 
     // how long the lerp has been happening for.
     private float fLerpCount = 0.0f;
-    
+
 
     // Use this for initialization
     void Start()
     {
-        // creating a new list of location and look at points
-        lstLocationPoints = new List<Transform>();
-        lstLookAtPoints = new List<Transform>();
-
-        // adding all the location points
-        for (int i = 0; i < goLocPoints.transform.childCount; ++i)
-            lstLocationPoints.Add(goLocPoints.transform.GetChild(i));
-
-        // adding all the look points
-        for (int i = 0; i < goLookPoints.transform.childCount; ++i)
-            lstLookAtPoints.Add(goLookPoints.transform.GetChild(i));
-
         // set the initial position of the camera
         transform.position = lstLocationPoints[0].position;
 
@@ -54,11 +38,17 @@ public class Point2PointCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if the camera jumps to the next point or not.
         if (RoundManager.bAllEnemiesDead)
+            bJumpToNextPoint = true;
+
+        // if the camera jumps to the next point or not.
+        if (bJumpToNextPoint)
         {
             // tell the lerp if check to lerp below
             bLerp = true;
+
+            // set jump to next point to false so we can reuse it.
+            bJumpToNextPoint = false;
         }
 
         // if going to lerp, continue it lerping.

@@ -5,29 +5,29 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Main Camera.
-    [Tooltip("This is for the Main Camera. It allows for the mouse to interact with the screen for shooting where you click.")]
+    //[Tooltip("This is for the Main Camera. It allows for the mouse to interact with the screen for shooting where you click.")]
     public Camera MainCamera;
 
     // The layers that interact when clicked on.
-    [Tooltip("This must be set to the setting everything. It means that the mouse can shoot anywhere.")]
+    //[Tooltip("This must be set to the setting everything. It means that the mouse can shoot anywhere.")]
     public LayerMask layerMask;
 
     // Empty GameObject that is where the bullets get shot from.
-    [Tooltip("This is where the bullets shoot from. The empty game object positioned at the end of the gun.")]
+    //[Tooltip("This is where the bullets shoot from. The empty game object positioned at the end of the gun.")]
     public GameObject shootSpot;
 
     // Empty GameObject that is where the bullets come back to when R is pressed.
-    [Tooltip("This is where the bullets come back to when the magnet is used. It is best to use an empty game object for this.")]
+    //[Tooltip("This is where the bullets come back to when the magnet is used. It is best to use an empty game object for this.")]
     public Transform BulletsReloadSpot;
 
     // Shoot speed.
-    [Tooltip("The speed that the bullets are fired at. Default is 75.")]
-    public float shootSpeed = 75;
+    //[Tooltip("The speed that the bullets are fired at. Default is 75.")]
+    public float shootSpeed;
 
     // RELOAD
     // How long it takes the bullets to reload.
-    [Tooltip("The amount of time in seconds that it takes for the bullets to disappear after magnet.")]
-    public float reloadDuration = 1.0f;
+    //[Tooltip("The amount of time in seconds that it takes for the bullets to disappear after magnet.")]
+    public float reloadDuration;
 
     // Stores the bullets location for the magnet.
     private List<Transform> BulletsLocations;
@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //reloadDuration = 1.0f;
         bBulletsLerp = false;
         fBulletsLerpCount = 0.0f;
         //layerMask = ~(LayerMask.NameToLayer("Player"));
@@ -122,9 +123,7 @@ public class Player : MonoBehaviour
             //m_Animator.SetBool("shooting", false);
 
             shotCount++;
-            transform.GetChild(1).GetComponent<Animator>().SetBool("Shooting", true);
         }
-        //
     }
 
     /* 
